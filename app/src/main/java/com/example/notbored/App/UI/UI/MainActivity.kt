@@ -1,5 +1,6 @@
 package com.example.notbored.App.UI.UI
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,10 +17,18 @@ class MainActivity : AppCompatActivity() {
 
         val btnStart = binding.btnStart
         btnStart.setOnClickListener {
+
             val participantsValue = binding.etCantParticipantes.text
+
+            val sharedPref = getSharedPreferences("Participants", Context.MODE_PRIVATE)
+
+            val editSharedPref = sharedPref.edit()
+
+            editSharedPref.putString("Participants", participantsValue.toString())
+
+            editSharedPref.apply()
+
             val intent = Intent(this, Activities::class.java).apply {
-                putExtra("id_key", 1)
-                putExtra("participants", participantsValue)
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK
             }
             startActivity(intent)

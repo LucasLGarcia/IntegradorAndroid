@@ -5,8 +5,24 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notbored.R
 
-class AdapterActivities(private val activities: List<String>) :
-    RecyclerView.Adapter<ActivitiesViewHolder>() {
+class AdapterActivities(private val activities: List<String>) : RecyclerView.Adapter<ActivitiesViewHolder>() {
+
+    private lateinit var itemClickListener: onItemClickListener
+
+
+    interface onItemClickListener{
+
+        fun onItemClick(position: Int)
+
+    }
+
+
+    fun setOnClickListener(listener: onItemClickListener){
+
+        itemClickListener = listener
+    }
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivitiesViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return ActivitiesViewHolder(layoutInflater.inflate(R.layout.activities_item, parent, false))
@@ -18,5 +34,7 @@ class AdapterActivities(private val activities: List<String>) :
     }
 
     override fun getItemCount() = activities.size
+
+
 
 }
