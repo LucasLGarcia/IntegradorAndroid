@@ -7,19 +7,18 @@ import com.example.notbored.R
 
 class AdapterActivities(private val activities: List<String>) : RecyclerView.Adapter<ActivitiesViewHolder>() {
 
-    private lateinit var itemClickListener: onItemClickListener
+    private lateinit var miListener: onItemClickListener
 
 
     interface onItemClickListener{
 
         fun onItemClick(position: Int)
-
     }
 
 
     fun setOnClickListener(listener: onItemClickListener){
 
-        itemClickListener = listener
+        miListener = listener
     }
 
 
@@ -34,7 +33,5 @@ class AdapterActivities(private val activities: List<String>) : RecyclerView.Ada
     }
 
     override fun getItemCount() = activities.size
-
-
 
 }
