@@ -3,6 +3,7 @@ package com.example.notbored.App.UI.UI
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.notbored.databinding.ActivityActivitiesBinding
 import com.example.notbored.databinding.ActivityActivitiesHardBinding
 
@@ -27,6 +28,18 @@ class ActivitiesHard : AppCompatActivity() {
         val btnMusic = binding.btnMusic
         val btnBusywork = binding.tvBusywork
         val btRandom = binding.btRandom
+
+        btRandom.setOnClickListener {
+
+            var randomElement = activities.random()
+
+            Log.d("1" , randomElement)
+
+            val intent = Intent(this, Suggestions::class.java).apply {
+                putExtra("type", randomElement.toString())
+            }
+            startActivity(intent)
+        }
 
         btnEducation.setOnClickListener {
             val intent = Intent(this, Suggestions::class.java).apply {
@@ -79,18 +92,6 @@ class ActivitiesHard : AppCompatActivity() {
         btnBusywork.setOnClickListener {
             val intent = Intent(this, Suggestions::class.java).apply {
                 putExtra("type", "busywork")
-            }
-            startActivity(intent)
-        }
-        btRandom.setOnClickListener {
-
-
-            var randomElement = activities.random()
-
-
-            val intent = Intent(this, Suggestions::class.java).apply {
-                putExtra("type", randomElement)
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK
             }
             startActivity(intent)
         }

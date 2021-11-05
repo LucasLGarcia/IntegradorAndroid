@@ -3,6 +3,7 @@ package com.example.notbored.App.UI.UI
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.notbored.databinding.ActivitySuggestionsBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -14,23 +15,28 @@ class Suggestions : AppCompatActivity() {
 
     private lateinit var binding: ActivitySuggestionsBinding
     private lateinit var participants: String
+    private lateinit var type: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-
         binding = ActivitySuggestionsBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        val type = intent.getStringExtra("type")
+        intent.extras?.run {
+            type = getString("type").toString()
+        }
+
         val sharedPref = getSharedPreferences("Participants", Context.MODE_PRIVATE)
         participants = sharedPref.getString("Participants", "0").toString()
 
         buscarSugerencia(type.toString())
 
+        val btRelanzar = binding.btRelanzar
 
-
-
+        btRelanzar.setOnClickListener {
+            buscarSugerencia(type.toString())
+        }
     }
 
 
@@ -55,23 +61,18 @@ class Suggestions : AppCompatActivity() {
                     when (precioActividadACargar){
                         "0" -> precioActividadACargar = "Free"
                         "0.1","0.2" ,"0.3" -> precioActividadACargar= "Low"
-                        "0.4","0.5" ,"0.6"  -> precioActividadACargar = "medium"
+                        "0.4","0.5" ,"0.6"  -> precioActividadACargar = "Medium"
                         else -> precioActividadACargar = "High"
                    }
 
                     binding.tvNombreActividad.text = nombreActividadACargar
-                    binding.tvPrice.text = precioActividadACargar
+                    binding.tvRespuestaPrecio.text = precioActividadACargar
                     binding.tvCantidadParticipantes.text = participantesACargar
-
-                }
-                else{
 
                 }
             }
 
         }
-
-
     }
 
     private fun getRetroFit(): Retrofit {
