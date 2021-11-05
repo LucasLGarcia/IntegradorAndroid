@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".App.UI.UI.ActivitiesHard">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <ImageView
+            android:id="@+id/btRandom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_share" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Activities"
+            android:textSize="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <TextView
+        android:id="@+id/tvBusywork2"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/busywork"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnBusyWork"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMusic" />
+
+    <TextView
+        android:id="@+id/tvEducation"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_margin="16dp"
+        android:text="@string/education"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toStartOf="@+id/btEducation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <TextView
+        android:id="@+id/tvRecreational"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/recreational"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnRecreational"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEducation" />
+
+    <TextView
+        android:id="@+id/tvSocial"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_margin="16dp"
+        android:text="@string/social"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnSocial"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRecreational" />
+
+    <TextView
+        android:id="@+id/tvDiy"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_margin="16dp"
+        android:text="@string/diy"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnDiy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSocial" />
+
+    <TextView
+        android:id="@+id/tvCharity"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_margin="16dp"
+        android:text="@string/charity"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnCharity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDiy" />
+
+    <TextView
+        android:id="@+id/tvCooking"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_margin="16dp"
+        android:text="@string/cooking"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnCooking"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCharity" />
+
+    <TextView
+        android:id="@+id/tvRelaxation"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/relaxation"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnRelaxation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCooking" />
+
+    <TextView
+        android:id="@+id/tvMusic"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="100dp"
+        android:text="@string/music"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnMusic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRelaxation" />
+
+    <TextView
+        android:id="@+id/tvBusywork"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/busywork"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnBusyWork"
+        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMusic" />
+
+    <ImageButton
+        android:id="@+id/btEducation"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvEducation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvEducation"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/btnRecreational"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvRecreational"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvRecreational"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/btnSocial"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSocial"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvSocial"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/btnDiy"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDiy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvDiy"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/btnCharity"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCharity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvCharity"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/btnCooking"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCooking"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvCooking"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/btnRelaxation"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvRelaxation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvRelaxation"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/btnMusic"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvMusic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvMusic"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/btnBusyWork"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBusywork"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvBusywork"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

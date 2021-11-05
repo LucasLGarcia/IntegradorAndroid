@@ -1,18 +1,23 @@
-package com.example.notbored.App.UI.UI
+/*package com.example.notbored.App.UI.UI
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notbored.R
 
-class AdapterActivities(private val activities: List<String>) : RecyclerView.Adapter<ActivitiesViewHolder>() {
+class AdapterActivities(private val activities: List<String>)
+    : RecyclerView.Adapter<ActivitiesViewHolder>() {
+    private val listener: (String) -> Unit
+        get() {
+            TODO()
+        }
 
     private lateinit var itemClickListener: onItemClickListener
 
 
     interface onItemClickListener{
 
-        fun onItemClick(position: Int)
+        fun onItemClick()
 
     }
 
@@ -33,8 +38,10 @@ class AdapterActivities(private val activities: List<String>) : RecyclerView.Ada
         holder.bind(activitieInPosition)
     }
 
+
+
     override fun getItemCount() = activities.size
 
 
 
-}
+}*/

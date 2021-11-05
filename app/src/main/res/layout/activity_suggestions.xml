@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Suggestions">
+    tools:context=".App.UI.UI.Suggestions">
 
     <TextView
         android:id="@+id/tvTipoActividad"
@@ -19,8 +19,10 @@
 
     <TextView
         android:id="@+id/tvNombreActividad"
-        android:layout_width="246dp"
+        android:layout_width="0dp"
         android:layout_height="93dp"
+        android:textSize="32sp"
+        tools:text="aca va la actividad"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -34,22 +36,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="78dp"
         android:layout_marginBottom="400dp"
+        android:text="Participants"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintEnd_toStartOf="@+id/tvCantidadParticipantes"
+        app:layout_constraintHorizontal_bias="0.193"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNombreActividad" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNombreActividad"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tvCantidadParticipantes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
         android:layout_marginTop="78dp"
+        android:layout_marginEnd="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tvParticipantes"
         app:layout_constraintTop_toBottomOf="@+id/tvNombreActividad"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -58,9 +61,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
+        android:text="Price"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintEnd_toStartOf="@+id/tvRespuestaPrecio"
+        app:layout_constraintHorizontal_bias="0.208"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvParticipantes"
         app:layout_constraintVertical_bias="0.074" />
@@ -69,12 +74,10 @@
         android:id="@+id/tvRespuestaPrecio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="103dp"
+        android:layout_marginEnd="80dp"
         android:layout_marginBottom="296dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tvPrice"
         app:layout_constraintTop_toBottomOf="@+id/tvCantidadParticipantes"
         app:layout_constraintVertical_bias="0.988" />
 
@@ -85,10 +88,10 @@
         android:layout_marginTop="74dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPrice"
-        app:layout_constraintVertical_bias="0.088" />
+        app:layout_constraintVertical_bias="0.098" />
 
     <Button
         android:id="@+id/btRelanzar"

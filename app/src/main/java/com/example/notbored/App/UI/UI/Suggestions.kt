@@ -1,11 +1,8 @@
-package com.example.notbored
+package com.example.notbored.App.UI.UI
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import com.example.notbored.App.UI.UI.APIService
-import com.example.notbored.App.UI.UI.SuggestionsResponse
 import com.example.notbored.databinding.ActivitySuggestionsBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -18,16 +15,18 @@ class Suggestions : AppCompatActivity() {
     private lateinit var binding: ActivitySuggestionsBinding
     private lateinit var participants: String
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
 
         binding = ActivitySuggestionsBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
+        val type = intent.getStringExtra("type")
         val sharedPref = getSharedPreferences("Participants", Context.MODE_PRIVATE)
-
         participants = sharedPref.getString("Participants", "0").toString()
+
+        buscarSugerencia(type.toString())
 
 
 
@@ -35,30 +34,38 @@ class Suggestions : AppCompatActivity() {
     }
 
 
-    private fun buscarSugerencia(tipo: String){
+    private fun buscarSugerencia(type: String){
 
         CoroutineScope(Dispatchers.IO).launch {
 
-            val llamada = getRetroFit().create(APIService::class.java).getSuggestions("type=$tipo&participants=$participants")
+            val llamada = getRetroFit()
+                .create(APIService::class.java)
+                .getSuggestions("activity?type=$type&participants=$participants")
 
             val respuesta: SuggestionsResponse? = llamada.body()
 
             runOnUiThread {
                 if(llamada.isSuccessful){
 
-                    val nombreActividadACargar = respuesta?.activity
-                    val tipoActividadACargar = respuesta?.type
-                    val precioActividadACargar = respuesta?.price
-                    val participantesACargar = respuesta?.participants
+                    val nombreActividadACargar = respuesta?.activity.toString()
+                    val tipoActividadACargar = respuesta?.type.toString()
+                    var precioActividadACargar = respuesta?.price.toString()
+                    val participantesACargar = respuesta?.participants.toString()
+
+                    when (precioActividadACargar){
+                        "0" -> precioActividadACargar = "Free"
+                        "0.1","0.2" ,"0.3" -> precioActividadACargar= "Low"
+                        "0.4","0.5" ,"0.6"  -> precioActividadACargar = "medium"
+                        else -> precioActividadACargar = "High"
+                   }
 
                     binding.tvNombreActividad.text = nombreActividadACargar
-                    binding.tvRespuestaPrecio.text = precioActividadACargar.toString()
-                    binding.tvCantidadParticipantes.text = participantesACargar.toString()
+                    binding.tvPrice.text = precioActividadACargar
+                    binding.tvCantidadParticipantes.text = participantesACargar
 
                 }
                 else{
-                    //val toast: Toast = Toast.makeText(, "No se encontró ninguna actividad que coincida con la busqueda", Toast.LENGTH_LONG)
-                    //toast.show()
+
                 }
             }
 
@@ -67,10 +74,9 @@ class Suggestions : AppCompatActivity() {
 
     }
 
-
     private fun getRetroFit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://www.boredapi.com/api/activity?")
+            .baseUrl("https://www.boredapi.com/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

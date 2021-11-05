@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
             editSharedPref.apply()
 
-            val intent = Intent(this, Activities::class.java).apply {
+            val intent = Intent(this, ActivitiesHard::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK
             }
             startActivity(intent)
